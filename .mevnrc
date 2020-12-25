@@ -1,0 +1,8 @@
+{
+  "name": "blog",
+  "template": "Default",
+  "isConfigured": {
+    "client": false,
+    "server": false
+  }
+}
