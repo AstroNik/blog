@@ -1,23 +1,23 @@
 // Importing required modules
 const cors = require('cors');
 const express = require('express');
-
-// parse env variables
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 require('dotenv').config();
 
+
 // Configuring port
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 3001;
 
 const app = express();
-
-// Configure middlewares
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
 app.set('view engine', 'html');
 
 // Static folder
-app.use(express.static(__dirname + '/views/'));
+app.use(express.static('../client/dist/'));
 
 // Defining route middleware
 app.use('/api', require('./routes/api'));
