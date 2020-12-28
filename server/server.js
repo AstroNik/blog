@@ -2,16 +2,27 @@
 const cors = require('cors');
 const express = require('express');
 const bodyParser = require('body-parser');
-const morgan = require('morgan');
+// const morgan = require('morgan');
+const mongoose = require('mongoose');
 require('dotenv').config();
 
+mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+let db = mongoose.connection;
+
+db.once('open', function () {
+    console.log('Connected to mongodb')
+})
+
+db.on("error", function (err) {
+    console.log(error);
+})
 
 // Configuring port
 const port = process.env.PORT || 3001;
 
 const app = express();
 app.use(cors());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 app.set('view engine', 'html');

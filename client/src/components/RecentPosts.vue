@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: "RecentPosts",
   data() {
@@ -15,23 +16,11 @@ export default {
     };
   },
   created() {
-    const headers = { "Content-Type": "application/json" };
-
-    fetch("/api/getLatestPosts", { headers })
-      .then(async (res) => {
-        const data = await res.json();
-
-        if (!res.ok) {
-          const error = (data && data.message) || res.statusText;
-          return Promise.reject(error);
-        }
-
-        this.posts = data.posts;
-      })
-      .catch((error) => {
-        this.errorMessage = error;
-        console.log("Error getting latests posts! ", error);
-      });
+    axios.get("/api/getLatestPosts").then((res) => {
+      console.log(res);
+    }).catch(error => {
+      console.log(error);
+    });
   },
 };
 </script>
