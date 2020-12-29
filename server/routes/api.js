@@ -9,8 +9,10 @@ router.get('/', (req, res) => {
 });
 
 router.get("/getLatestPosts", async (req,res) => {
-  const posts = await Posts.find();
-  console.log(posts)
+  console.log("Awaiting response from DB - getLatestPosts");
+  const posts = await Posts.find().sort({_id:-1}).limit(10);
+  res.json(posts);
+  console.log("Response sent - getLatestPosts");
 })
 
 router.post("/createPost", (req,res) => {

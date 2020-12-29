@@ -1,26 +1,33 @@
 <template>
   <div class="hello">
     <h3>Latest Posts</h3>
-    {{ posts }}
+    <RecentPostTile />
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
+import RecentPostTile from "@/components/RecentPostTile";
 export default {
   name: "RecentPosts",
+  components: {
+    RecentPostTile,
+  },
   data() {
     return {
-      posts: {},
+      posts: [],
       errorMessage: "",
     };
   },
   created() {
-    axios.get("/api/getLatestPosts").then((res) => {
-      console.log(res);
-    }).catch(error => {
-      console.log(error);
-    });
+    axios
+      .get("/api/getLatestPosts")
+      .then((res) => {
+        this.posts = res.data;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
 </script>
