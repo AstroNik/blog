@@ -1,11 +1,13 @@
 const mongoose = require('mongoose')
 
 const postSchema = new mongoose.Schema({
-    postID: Number,
+    postId: Number,
     title: String,
-    dateTime: Date,
+    date: Date,
     content: String,
     tags: String
+}, {
+    versionKey: false
 });
 
 module.exports = mongoose.model('Posts', postSchema);

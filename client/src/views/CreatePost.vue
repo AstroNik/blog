@@ -46,7 +46,6 @@ export default {
     return {
       form: {
         title: "",
-        date: null,
         content: "",
         tags: "",
       },
@@ -58,15 +57,20 @@ export default {
       event.preventDefault();
       axios.post("/api/createPost", {
           title: this.form.title,
-          date: this.form.date,
           content: this.form.content,
-          tages: this.form.tags,
+          tags: this.form.tags,
         }, {
           headers: {
             'Content-Type' : 'application/json'
           },
         })
-        .catch((error) => {
+        .then(res => {
+          if (res.status == 200) {
+            console.log(res.data)
+            this.$router.push('/')
+          }  
+        })
+        .catch(error => {
           console.log(error);
         });
     },

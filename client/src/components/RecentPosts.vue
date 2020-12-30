@@ -1,7 +1,7 @@
 <template>
   <div>
     <RecentPostTile
-      v-for="post in posts"
+      v-for="(post) in posts"
       v-bind:key="post.postId"
       :post="post"
     />

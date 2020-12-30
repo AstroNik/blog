@@ -1,16 +1,31 @@
 <template>
   <div>
-    <a :href="url"> <h2>{{ post.title }}</h2> </a>
+    <a :href="url" id="title">
+      <h2>{{ post.title }}</h2>
+    </a>
     <p>{{ post.content }}</p>
-    <div class="d-inline-flex justify-content-between w-100">
-      <p>Nikhil Kapadia on {{ post.tags }}</p>
-      <p>{{ date }}</p>
+    <div class="d-inline-flex w-100">
+      <p class="sub-text">Nikhil Kapadia on {{ post.tags }} |</p>
+      <p class="sub-text">&nbsp;{{ date }}</p>
     </div>
     <hr />
   </div>
 </template>
 
 <style>
+#title {
+  text-decoration: none;
+  color: #494949;
+}
+
+#title:hover {
+  color:black;
+}
+
+.sub-text {
+  color: #969696;
+  font-family: Arial, Helvetica, sans-serif;
+}
 </style>
 
 <script>
@@ -24,7 +39,7 @@ export default {
   data() {
     return {
       date: moment(this.post.date).format("LL"),
-      url: "/post/" + this.post.postId
+      url: "/post/" + this.post.postId,
     };
   },
 };
