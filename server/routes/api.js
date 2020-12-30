@@ -11,6 +11,11 @@ router.get('/', (req, res) => {
 router.get("/getLatestPosts", async (req,res) => {
   console.log("Awaiting response from DB - getLatestPosts");
   const posts = await Posts.find().sort({_id:-1}).limit(10);
+  if(posts == null || posts == undefined){
+    console.log("Response sent - getLatestPosts");
+    res.status(500);
+  }
+  res.status(200);
   res.json(posts);
   console.log("Response sent - getLatestPosts");
 })

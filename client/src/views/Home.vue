@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="">
     <div id="home">
       <!-- Here will be a picture of whatever my landing page will have -->
       <div class="img-con">
@@ -25,9 +25,9 @@ export default {
 
 <style>
 #home {
-  overflow: hidden;
+  /* overflow: hidden; */
   width: 80%;
-  text-align: center;
+  /* text-align: center; */
   right: 12.5%;
   -ms-transform: translateX(12.5%);
   transform: translateX(12.5%);
@@ -35,7 +35,6 @@ export default {
 
 .img-con {
   width: 100%;
-  margin-bottom: -25px;
 }
 
 .landing-img {

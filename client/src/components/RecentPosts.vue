@@ -1,7 +1,10 @@
 <template>
-  <div class="hello">
-    <h3>Latest Posts</h3>
-    <RecentPostTile />
+  <div>
+    <RecentPostTile
+      v-for="post in posts"
+      v-bind:key="post.postId"
+      :post="post"
+    />
   </div>
 </template>
 
@@ -15,7 +18,22 @@ export default {
   },
   data() {
     return {
-      posts: [],
+      posts: [
+        {
+          postId: 654,
+          date: "2020-12-28T05:00:00.000+00:00",
+          title: "Creating a blog 101",
+          content: "sdfgsdgf",
+          tags: "sdfsd",
+        },
+        {
+          postId: 56,
+          date: "2020-12-29T05:00:00.000+00:00",
+          title: "Hell345o",
+          content: "sdfgfgcvbsdgf",
+          tags: "cvbcvhbcvb",
+        },
+      ],
       errorMessage: "",
     };
   },

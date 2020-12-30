@@ -1,7 +1,9 @@
 <template>
   <b-navbar toggleable type="dark" variant="dark">
     <b-navbar-brand href="#">
-      <img width="40px" src="img/logo.png" alt="logo" />
+      <router-link to="/">
+        <img width="40px" src="/img/logo.png" alt="logo" />
+      </router-link>
     </b-navbar-brand>
 
     <b-navbar-toggle target="navbar-toggle-collapse">
@@ -13,8 +15,10 @@
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item href="#"><router-link to="/">Home</router-link></b-nav-item>
-        <b-nav-item href="#"><router-link to="/createPost">Create Post</router-link></b-nav-item>
+        <b-nav-item> <router-link to="/">Home</router-link> </b-nav-item>
+        <b-nav-item>
+          <router-link to="/createPost">Create Post</router-link>
+        </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
