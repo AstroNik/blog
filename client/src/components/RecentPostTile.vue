@@ -1,5 +1,6 @@
 <template>
   <div>
+    <br/>
     <a :href="url" id="title">
       <h2>{{ post.title }}</h2>
     </a>
