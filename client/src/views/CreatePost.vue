@@ -8,6 +8,17 @@
             v-model="form.title"
             type="text"
             placeholder="title"
+            required
+          ></b-form-input>
+        </b-form-group>
+
+        <b-form-group id="input-group-2" label="Post Img Link" label-for="input-2">
+          <b-form-input
+            id="input-12"
+            v-model="form.imgLink"
+            type="text"
+            placeholder="link"
+            required
           ></b-form-input>
         </b-form-group>
 
@@ -15,15 +26,17 @@
           <b-form-textarea
             id="textarea"
             v-model="form.content"
+            required
           ></b-form-textarea>
           <!-- <p>``` code ``` **bold** *italic* >quote</p> -->
         </b-form-group>
 
-        <b-form-group id="input-group-2" label="Tags" label-for="input-2">
+        <b-form-group id="input-group-3" label="Tags" label-for="input-3">
           <b-form-input
-            id="input-2"
+            id="input-3"
             v-model="form.tags"
             placeholder="tags"
+            required
           ></b-form-input>
         </b-form-group>
 
@@ -48,6 +61,7 @@ export default {
         title: "",
         content: "",
         tags: "",
+        imgLink: "",
       },
       content: null,
     };
@@ -55,30 +69,31 @@ export default {
   methods: {
     onSubmit(event) {
       event.preventDefault();
-      axios.post("/api/createPost", {
-          title: this.form.title,
-          content: this.form.content,
-          tags: this.form.tags,
-        }, {
-          headers: {
-            'Content-Type' : 'application/json'
+      axios
+        .post(
+          "/api/createPost",
+          {
+            title: this.form.title,
+            content: this.form.content,
+            tags: this.form.tags,
+            imgLink: this.form.imgLink
           },
-        })
-        .then(res => {
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((res) => {
           if (res.status == 200) {
-            console.log(res.data)
-            this.$router.push('/')
-          }  
+            console.log(res.data);
+            this.$router.push("/");
+          }
         })
-        .catch(error => {
+        .catch((error) => {
           console.log(error);
         });
     },
-    // onChange() {
-    //   document.getElementById("body-preview").innerHTML = '';
-    //   this.content = TP.processText(this.form.content);
-    //   document.getElementById("body-preview").appendChild(this.content);
-    // }
   },
 };
 </script>

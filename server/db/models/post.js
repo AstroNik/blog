@@ -5,7 +5,8 @@ const postSchema = new mongoose.Schema({
     title: String,
     date: Date,
     content: String,
-    tags: String
+    tags: String,
+    imgLink: String
 }, {
     versionKey: false
 });

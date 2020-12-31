@@ -1,5 +1,6 @@
 <template>
   <router-link
+    id="title"
     v-bind:to="{ name: 'PostView', params: { id: post.postId, data: post } }"
   >
     <div>
