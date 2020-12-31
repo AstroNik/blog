@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="img-con">
-      <img alt="Vue logo" src="../assets/landing.png" class="landing-img" />
+      <img alt="LandingPage" src="../assets/landing.png" class="landing-img" />
     </div>
     <div class="container">
       <RecentPosts />
@@ -14,7 +14,7 @@
 import RecentPosts from "@/components/RecentPosts.vue";
 
 export default {
-  name: "home",
+  name: "Home",
   components: {
     RecentPosts,
   },

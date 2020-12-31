@@ -11,17 +11,18 @@ export default new Router({
   routes: [
     {
       path: "/",
-      name: "home",
+      name: "Home",
       component: Home
     },
     {
       path: "/createPost",
-      name: "createPost",
+      name: "CreatePost",
       component: CreatePost
     },
     {
       path: "/post/:id",
-      name: "post",
+      name: "PostView",
+      props: true,
       component: () => import("./views/PostView.vue")
     }
   ]

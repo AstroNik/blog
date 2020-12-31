@@ -1,16 +1,18 @@
 <template>
-  <div>
-    <br/>
-    <a :href="url" id="title">
+  <router-link
+    v-bind:to="{ name: 'PostView', params: { id: post.postId, data: post } }"
+  >
+    <div>
+      <br />
       <h2>{{ post.title }}</h2>
-    </a>
-    <p>{{ post.content }}</p>
-    <div class="d-inline-flex w-100">
-      <p class="sub-text">Nikhil Kapadia on {{ post.tags }} |</p>
-      <p class="sub-text">&nbsp;{{ date }}</p>
+      <p>{{ post.content }}</p>
+      <div class="d-inline-flex w-100">
+        <p class="sub-text">Nikhil Kapadia on {{ post.tags }} |</p>
+        <p class="sub-text">&nbsp;{{ date }}</p>
+      </div>
+      <hr />
     </div>
-    <hr />
-  </div>
+  </router-link>
 </template>
 
 <style>
@@ -20,7 +22,7 @@
 }
 
 #title:hover {
-  color:black;
+  color: black;
 }
 
 .sub-text {
@@ -40,7 +42,7 @@ export default {
   data() {
     return {
       date: moment(this.post.date).format("LL"),
-      url: "/post/" + this.post.postId,
+      id: this.post.postId,
     };
   },
 };
