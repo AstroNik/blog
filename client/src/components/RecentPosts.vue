@@ -23,7 +23,7 @@ export default {
           postId: 654,
           date: "2020-12-28T05:00:00.000+00:00",
           title: "Creating a blog 101",
-          content: "sdfgsdgf",
+          content: "**sdfgsdgf**\nkljsdfgsklsdfg\nsdkfhsdfg",
           tags: "sdfsd",
           imgLink: "https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
         },

@@ -6,7 +6,7 @@
     <div>
       <br />
       <h2>{{ post.title }}</h2>
-      <p>{{ post.content }}</p>
+      <p v-html="postContent"></p>
       <div class="d-inline-flex w-100">
         <p class="sub-text">Nikhil Kapadia on {{ post.tags }} |</p>
         <p class="sub-text">&nbsp;{{ date }}</p>
@@ -34,6 +34,7 @@
 
 <script>
 import moment from "moment";
+import marked from "marked";
 
 export default {
   name: "recentPostTile",
@@ -44,6 +45,7 @@ export default {
     return {
       date: moment(this.post.date).format("LL"),
       id: this.post.postId,
+      postContent: marked(this.post.content)
     };
   },
 };

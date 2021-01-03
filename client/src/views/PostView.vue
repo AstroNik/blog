@@ -6,14 +6,14 @@
     <div class="container">
       <h1>{{ postData.title }}</h1>
       <span> {{ date }} on {{ postData.tags }} </span>
-      <div v-html="content.outerHTML"></div>
+      <div v-html="content"></div>
     </div>
   </div>
 </template>
 
 <script>
 import moment from "moment";
-import * as TP from "../functions/TextProcess";
+import marked from "marked";
 
 export default {
   name: "PostView",
@@ -28,8 +28,7 @@ export default {
     };
   },
   created() {
-    let content = TP.processText(this.postData.content);
-    this.content = content;
+    this.content = marked(this.postData.content);
   },
 };
 </script>

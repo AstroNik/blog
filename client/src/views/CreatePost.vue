@@ -12,7 +12,11 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-form-group id="input-group-2" label="Post Img Link" label-for="input-2">
+        <b-form-group
+          id="input-group-2"
+          label="Post Img Link"
+          label-for="input-2"
+        >
           <b-form-input
             id="input-12"
             v-model="form.imgLink"
@@ -26,9 +30,11 @@
           <b-form-textarea
             id="textarea"
             v-model="form.content"
+            rows="10"
+            v-on="onChange()"
             required
           ></b-form-textarea>
-          <!-- <p>``` code ``` **bold** *italic* >quote</p> -->
+          <!-- <p>``` code ``` **bold** *italic* </p> -->
         </b-form-group>
 
         <b-form-group id="input-group-3" label="Tags" label-for="input-3">
@@ -40,7 +46,7 @@
           ></b-form-input>
         </b-form-group>
 
-        <div id="body-preview"></div>
+        <div v-html="content"></div>
 
         <div class="text-right">
           <b-button type="submit" variant="primary">Post</b-button>
@@ -52,6 +58,7 @@
 
 <script>
 import axios from "axios";
+import marked from "marked";
 
 export default {
   name: "CreatePost",
@@ -67,6 +74,9 @@ export default {
     };
   },
   methods: {
+    onChange() {
+      this.content = marked(this.form.content);
+    },
     onSubmit(event) {
       event.preventDefault();
       axios
@@ -76,7 +86,7 @@ export default {
             title: this.form.title,
             content: this.form.content,
             tags: this.form.tags,
-            imgLink: this.form.imgLink
+            imgLink: this.form.imgLink,
           },
           {
             headers: {
