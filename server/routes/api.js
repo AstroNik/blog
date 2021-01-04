@@ -3,7 +3,6 @@ const path = require('path');
 const Posts = require('../db/models/post');
 const router = express.Router();
 const multer = require('multer');
-const { json } = require('express');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -19,7 +18,7 @@ const fileFilter = (req, file, cb) => {
     cb(null, true);
   }
   else {
-    cb(null, flase);
+    cb(null, false);
   }
 };
 
@@ -48,7 +47,6 @@ router.get("/getLatestPosts", async (req, res) => {
 })
 
 router.post("/createPost",upload.single('img'), (req, res) => {
-  console.log(req.body)
   let currDate = new Date().toISOString();
   let post = req.body;
   post.postId = Math.floor((Math.random() * 9999999) + 1000000);
@@ -65,10 +63,5 @@ router.post("/createPost",upload.single('img'), (req, res) => {
     })
 
 });
-
-
-router.post("/saveImage", upload.single('img'), (req,res) => {
-  console.log(req.file);
-})
 
 module.exports = router;
