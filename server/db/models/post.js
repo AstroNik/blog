@@ -6,7 +6,7 @@ const postSchema = new mongoose.Schema({
     date: Date,
     content: String,
     tags: String,
-    imgLink: String
+    img: String
 }, {
     versionKey: false
 });

@@ -25,7 +25,7 @@ export default {
           title: "Creating a blog 101",
           content: "**sdfgsdgf**\nkljsdfgsklsdfg\nsdkfhsdfg",
           tags: "sdfsd",
-          imgLink: "https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
+          // imgLink: "https://images.unsplash.com/photo-1609342122563-a43ac8917a3a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80",
         },
         {
           postId: 56,
@@ -33,7 +33,7 @@ export default {
           title: "Hell345o",
           content: "sdfgfgcvbsdgf",
           tags: "cvbcvhbcvb",
-          imgLink: "https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          // imgLink: "https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
         },
       ],
       errorMessage: "",

@@ -22,6 +22,7 @@ const port = process.env.PORT || 3001;
 
 const app = express();
 app.use(cors());
+app.use('/uploads',express.static('uploads'))
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 

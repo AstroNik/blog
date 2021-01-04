@@ -14,16 +14,16 @@
 
         <b-form-group
           id="input-group-2"
-          label="Post Img Link"
+          label="Landing Image"
           label-for="input-2"
         >
-          <b-form-input
-            id="input-12"
-            v-model="form.imgLink"
-            type="text"
-            placeholder="link"
+          <b-form-file
+            id="input-2"
+            v-model="img"
+            placeholder="Choose a file or drop it here..."
             required
-          ></b-form-input>
+            :state="Boolean(img)"
+          ></b-form-file>
         </b-form-group>
 
         <b-form-group id="textarea-group-1" label="Body" label-for="textarea-1">
@@ -68,9 +68,9 @@ export default {
         title: "",
         content: "",
         tags: "",
-        imgLink: "",
       },
       content: null,
+      img: null,
     };
   },
   methods: {
@@ -79,21 +79,15 @@ export default {
     },
     onSubmit(event) {
       event.preventDefault();
+      const formData = new FormData();
+
+      formData.append("title", this.form.title);
+      formData.append("content", this.form.content);
+      formData.append("tags", this.form.tags);
+      formData.append("img", this.img);
+
       axios
-        .post(
-          "/api/createPost",
-          {
-            title: this.form.title,
-            content: this.form.content,
-            tags: this.form.tags,
-            imgLink: this.form.imgLink,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
+        .post("/api/createPost", formData)
         .then((res) => {
           if (res.status == 200) {
             console.log(res.data);
