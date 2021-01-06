@@ -7,7 +7,7 @@ const multer = require('multer');
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-const fileEndpoint = "https://" + process.env.DO_SPACE_NAME + "." + process.env.DO_SPACE_ENDPOINT + "/";
+const fileEndpoint = "https://" + process.env.DO_SPACE_NAME + "." + process.env.DO_SPACE_ENDPOINT + "/blog/";
 
 const space = new aws.S3({
   endpoint: process.env.DO_SPACE_ENDPOINT,
@@ -38,7 +38,7 @@ router.post("/createPost", upload.single('img'), (req, res) => {
     Bucket: bucket,
     Body: req.file.buffer,
     ACL: 'public-read',
-    Key: req.file.originalname
+    Key: "blog/" +req.file.originalname
   }
 
   space.upload(uploadParams, function (error, data) {
