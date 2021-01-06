@@ -2,33 +2,20 @@ const express = require('express');
 const path = require('path');
 const Posts = require('../db/models/post');
 const router = express.Router();
+const aws = require('aws-sdk');
 const multer = require('multer');
+const storage = multer.memoryStorage();
+const upload = multer({ storage: storage });
 
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './uploads/');
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
+const fileEndpoint = "https://" + process.env.DO_SPACE_NAME + "." + process.env.DO_SPACE_ENDPOINT + "/";
+
+const space = new aws.S3({
+  endpoint: process.env.DO_SPACE_ENDPOINT,
+  useAccelerateEndpoint: false,
+  credentials: new aws.Credentials(process.env.DO_SPACE_KEY, process.env.DO_SPACE_SECRET, null)
 });
 
-const fileFilter = (req, file, cb) => {
-  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
-    cb(null, true);
-  }
-  else {
-    cb(null, false);
-  }
-};
-
-const upload = multer({
-  storage: storage,
-  limit: {
-    fileSize: 1024 * 1024 * 5
-  },
-  fileFilter: fileFilter
-});
+const bucket = process.env.DO_SPACE_NAME;
 
 router.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '..', '../client/dist/', 'index.html'));
@@ -44,14 +31,29 @@ router.get("/getLatestPosts", async (req, res) => {
   res.status(200);
   res.json(posts);
   console.log("Response sent - getLatestPosts");
-})
+});
 
-router.post("/createPost",upload.single('img'), (req, res) => {
+router.post("/createPost", upload.single('img'), (req, res) => {
+  let uploadParams = {
+    Bucket: bucket,
+    Body: req.file.buffer,
+    ACL: 'public-read',
+    Key: req.file.originalname
+  }
+
+  space.upload(uploadParams, function (error, data) {
+    if (error) {
+      console.log(error);
+      res.sendStatus(500);
+    }
+    console.log("Successfully uploaded Image to DO");
+  });
+
   let currDate = new Date().toISOString();
   let post = req.body;
   post.postId = Math.floor((Math.random() * 9999999) + 1000000);
   post.date = currDate;
-  post.img = req.file.path;
+  post.img = fileEndpoint + req.file.originalname;
   post = new Posts(post);
   console.log(req.body);
 
@@ -60,7 +62,7 @@ router.post("/createPost",upload.single('img'), (req, res) => {
   })
     .catch(() => {
       res.status(400).send("unable to post");
-    })
+    });
 
 });
 

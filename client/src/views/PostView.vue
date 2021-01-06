@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="img-con">
-      <img alt="img" :src="baseUrl" class="landing-img" />
+      <img alt="img" :src="postData.img" class="landing-img" />
     </div>
     <div class="container">
       <h1>{{ postData.title }}</h1>
@@ -25,12 +25,10 @@ export default {
       postData: this.$route.params.data,
       content: null,
       date: moment(this.$route.params.data.date).format("LL"),
-      baseUrl: null,
     };
   },
   created() {
     this.content = marked(this.postData.content);
-    this.baseUrl = window.location.origin +"/"+this.postData.img;
   },
 };
 </script>
