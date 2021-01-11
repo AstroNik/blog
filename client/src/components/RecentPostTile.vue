@@ -5,7 +5,7 @@
   >
     <div>
       <br />
-      <h2>{{ post.title }}</h2>
+      <h1>{{ post.title }}</h1>
       <p v-html="postContent"></p>
       <div class="d-inline-flex w-100">
         <p class="sub-text">Nikhil Kapadia on {{ post.tags }} |</p>

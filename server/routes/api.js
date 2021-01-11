@@ -66,4 +66,5 @@ router.post("/createPost", upload.single('img'), (req, res) => {
 
 });
 
+
 module.exports = router;
