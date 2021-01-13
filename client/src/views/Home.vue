@@ -4,7 +4,7 @@
       <div class="landing-text">
         <h1 class="page-title">Nikhil Kapadia's Blog</h1>
         <span class="sub-title">
-          Frameworks, Machine Learning, Neural Networks & More
+          Frameworks, Machine Learning, DevOps & More
         </span>
       </div>
     </div>
