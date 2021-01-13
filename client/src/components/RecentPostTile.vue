@@ -5,7 +5,7 @@
   >
     <div>
       <br />
-      <h1>{{ post.title }}</h1>
+      <h2 class="post-title">{{ post.title }}</h2>
       <p v-html="postContent"></p>
       <div class="d-inline-flex w-100">
         <p class="sub-text">Nikhil Kapadia on {{ post.tags }} |</p>
@@ -24,6 +24,11 @@
 
 #title:hover {
   color: black;
+}
+
+.post-title {
+  font-size: 2.1rem;
+  font-weight: 700;
 }
 
 .sub-text {

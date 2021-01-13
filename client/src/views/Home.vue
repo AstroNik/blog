@@ -2,8 +2,10 @@
   <div>
     <div class="img-con">
       <div class="landing-text">
-        <h2>Nikhil Kapadia's Blog</h2>
-        <span> Frameworks, Machine Learning, Neural Networks & More </span>
+        <h1 class="page-title">Nikhil Kapadia's Blog</h1>
+        <span class="sub-title">
+          Frameworks, Machine Learning, Neural Networks & More
+        </span>
       </div>
     </div>
     <div class="container">
@@ -27,20 +29,35 @@ export default {
 <style>
 .img-con {
   position: relative;
-  background-color: #f2f2f2;
+  background-color: #f5f8fa;
 }
 
 .landing-text {
   position: absolute;
   text-align: center;
-  top: 50%; left: 50%;
-  transform: translate(-50%,-50%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.page-title {
+  font-weight: 700;
+  color: rgba(0,0,0,0.8);
+}
+
+.sub-title {
+  color: rgba(0, 0, 0, 0.5);
 }
 
 @media (max-width: 575.98px) {
   .img-con {
     width: 100vw;
     height: 20vh;
+  }
+
+  .page-title {
+    font-size: 2.3rem;
   }
 }
 
@@ -49,20 +66,12 @@ export default {
     width: 100vw;
     height: 20vh;
   }
-
-  .landing-img {
-    max-width: 100%;
-  }
 }
 
 @media (min-width: 768px) {
   .img-con {
     width: 100vw;
     height: 30vh;
-  }
-
-  .landing-img {
-    max-width: 100%;
   }
 }
 
