@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="container-fluid pt-4">
     <div id="post">
       <b-form @submit="onSubmit">
         <b-form-group id="input-group-1" label="Title" label-for="input-1">
@@ -64,6 +64,7 @@ export default {
   name: "CreatePost",
   data() {
     return {
+      loadPage: false,
       form: {
         title: "",
         content: "",

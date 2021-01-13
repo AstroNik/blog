@@ -15,9 +15,14 @@
 
     <b-collapse id="navbar-toggle-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item> <router-link to="/">Home</router-link> </b-nav-item>
-        <b-nav-item>
+        <b-nav-item v-show="!user">
+          <router-link to="/login"> Login </router-link>
+        </b-nav-item>
+        <b-nav-item v-show="user">
           <router-link to="/createPost">Create Post</router-link>
+        </b-nav-item>
+        <b-nav-item v-show="user">
+          <router-link to="/" v-on:click.native="logout">Logout</router-link>
         </b-nav-item>
       </b-navbar-nav>
     </b-collapse>
@@ -25,7 +30,18 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+import firebase from "firebase";
+
 export default {
   name: "NavBar",
+  computed: {
+    ...mapGetters(["user"]),
+  },
+  methods: {
+    logout() {
+      firebase.auth().signOut();
+    },
+  },
 };
 </script>

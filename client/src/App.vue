@@ -19,8 +19,12 @@ export default {
 </script>
 
 <style>
+html {
+  height: calc(100vh - 56.45px);
+}
 body {
   margin: 0;
+  height: calc(100vh - 56.45px);
 }
 
 #app {
