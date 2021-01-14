@@ -23,14 +23,20 @@
 
 .landing-img {
   position: relative;
+  display: table;
   width: 100%;
-  top: -50%;
+  height:100%;
+  margin-bottom: 5rem;
+  background: #222 no-repeat center center;
+  background-size: cover;
+  overflow: hidden;
+  object-fit: cover; /*magic*/
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 500px) {
   .img-con {
     width: 100vw;
-    height: 20vh;
+    height: 30vh;
   }
 
   .page-title {
@@ -41,21 +47,22 @@
 @media (min-width: 576px) {
   .img-con {
     width: 100vw;
-    height: 20vh;
+    height: 45vh;
   }
 }
 
 @media (min-width: 768px) {
-  .img-con {
-    width: 100vw;
-    height: 45vh;
-  }
+  
+}
+
+@media (min-width: 992px) {
+
 }
 
 @media (min-width: 1200px) {
   .img-con {
     width: 100vw;
-    height: 60vh;
+    height: 65vh;
   }
 }
 </style>
