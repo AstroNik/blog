@@ -31,7 +31,7 @@ export default {
           postId: 56,
           date: "2020-12-29T05:00:00.000+00:00",
           title: "Hell345o",
-          content: "sdfgfgcvbsdgf",
+          content: "",
           tags: "cvbcvhbcvb",
           // imgLink: "https://images.unsplash.com/photo-1493238792000-8113da705763?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
         },

@@ -4,6 +4,7 @@ import Home from "./views/Home.vue";
 import CreatePost from "./views/CreatePost.vue";
 import Login from "./views/Login.vue"
 import store from "./store";
+import PostView from './views/PostView.vue'
 
 Vue.use(Router);
 
@@ -28,7 +29,7 @@ const routes = [
     path: "/post/:id",
     name: "PostView",
     props: true,
-    component: () => import("./views/PostView.vue")
+    component: PostView
   }
 ]
 

@@ -3,7 +3,7 @@
     <div class="img-con">
       <img alt="img" :src="postData.img" class="landing-img" />
     </div>
-    <div class="container pt-4">
+    <div class="container pt-4 pb-4">
       <h1 class="post-title">{{ postData.title }}</h1>
       <span class="sub-title"> {{ date }} on {{ postData.tags }} </span>
       <div v-html="content" class="pt-4"></div>
@@ -11,11 +11,20 @@
   </div>
 </template>
 
-<style scoped>
-
+<style>
 .sub-title {
   color: rgba(0, 0, 0, 0.5);
   font-size: 0.9rem;
+}
+
+.img-con {
+  overflow: hidden;
+}
+
+.landing-img {
+  position: relative;
+  width: 100%;
+  top: -50%;
 }
 
 @media (max-width: 575.98px) {

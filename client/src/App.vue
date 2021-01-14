@@ -48,4 +48,38 @@ body {
   text-decoration: none;
 }
 
+pre {
+  box-sizing: border-box;
+  margin: 0 0 1.75em 0;
+  border: #e3edf3 1px solid;
+  width: 100%;
+  padding: 10px;
+  font-family: Inconsolata, monospace, sans-serif;
+  font-size: 0.9em;
+  white-space: pre;
+  overflow: auto;
+  background: #f7fafb;
+  border-radius: 3px;
+}
+
+code {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #f0f0f0;
+  color: black;
+}
+
+blockquote {
+  box-sizing: border-box;
+  margin: 1.75em 0 1.75em -2.2em;
+  padding: 0 0 0 1.75em;
+  border-left: #4a4a4a 0.4em solid;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+  background: #f0f0f0;
+}
 </style>
