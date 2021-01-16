@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blogapp
+  labels:
+    app: blogapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: blogapp
+  template:
+    metadata:
+      labels:
+        name: blogapp
+    spec:
+      containers:
+        - name: blogapp
+          image: astronik/blogapp:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
