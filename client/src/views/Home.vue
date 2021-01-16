@@ -30,6 +30,7 @@ export default {
 .img-con {
   position: relative;
   background-color: #f5f8fa;
+  overflow-x: hidden;
 }
 
 .landing-text {

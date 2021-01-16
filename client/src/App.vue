@@ -21,20 +21,27 @@ export default {
 <style>
 html {
   height: calc(100vh - 56.45px);
+  overflow-x: hidden;
 }
 body {
   margin: 0;
   height: calc(100vh - 56.45px);
+  overflow-x: hidden;
 }
 
 #app {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   width: 100%;
   height: 100%;
   justify-content: center;
+}
+
+h1, h2{
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
 }
 
 #nav a {

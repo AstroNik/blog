@@ -5,7 +5,7 @@
   >
     <div>
       <br />
-      <h2 class="post-title">{{ post.title }}</h2>
+      <h2 class="post-title-tile">{{ post.title }}</h2>
       <p v-html="postContent" class="content-text"></p>
       <div class="d-inline-flex w-100">
         <p class="sub-text">Nikhil Kapadia on {{ post.tags }} |</p>
@@ -26,7 +26,7 @@
   color: black;
 }
 
-.post-title {
+.post-title-tile {
   font-size: 2.1rem;
   font-weight: 700;
 }
@@ -40,28 +40,20 @@
   font-size: 0.9em;
 }
 
-@media (max-width: 575.98px) {
-  .post-title {
+@media (max-width: 500px) {
+  .post-title-tile {
     font-size: 1.8rem;
   }
 }
 
-@media (min-width: 576px) {
-  .post-title {
-    font-size: 2rem;
-  }
+@media (max-width: 900px) {
 }
 
 @media (min-width: 768px) {
-  .post-title {
-    font-size: 2.2rem;
-  }
 }
 
 @media (min-width: 1200px) {
- 
 }
-
 </style>
 
 <script>

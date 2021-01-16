@@ -48,7 +48,7 @@
 
         <div v-html="content"></div>
 
-        <div class="text-right">
+        <div class="text-right pb-4">
           <b-button type="submit" variant="primary">Post</b-button>
         </div>
       </b-form>

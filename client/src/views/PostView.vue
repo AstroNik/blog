@@ -12,6 +12,10 @@
 </template>
 
 <style>
+.post-title {
+  font-weight: 700;
+}
+
 .sub-title {
   color: rgba(0, 0, 0, 0.5);
   font-size: 0.9rem;
@@ -21,12 +25,17 @@
   overflow: hidden;
 }
 
+p img {
+  width: 100%;
+  object-fit: cover;
+  text-align: center;
+}
+
 .landing-img {
   position: relative;
   display: table;
   width: 100%;
-  height:100%;
-  margin-bottom: 5rem;
+  height: 100%;
   background: #222 no-repeat center center;
   background-size: cover;
   overflow: hidden;
@@ -39,8 +48,12 @@
     height: 30vh;
   }
 
-  .page-title {
-    font-size: 2.3rem;
+  .post-title {
+    font-size: 2.4rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
   }
 }
 
@@ -49,14 +62,20 @@
     width: 100vw;
     height: 45vh;
   }
+
+  .post-title {
+    font-size: 2.6rem;
+  }
+
+  h2 {
+    font-size: 2.3rem;
+  }
 }
 
 @media (min-width: 768px) {
-  
 }
 
 @media (min-width: 992px) {
-
 }
 
 @media (min-width: 1200px) {
