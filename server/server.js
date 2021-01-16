@@ -13,7 +13,7 @@ db.once('open', function () {
 })
 
 db.on("error", function (err) {
-    console.log(error);
+    console.log(err);
 })
 
 // Configuring port

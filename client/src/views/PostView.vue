@@ -49,11 +49,11 @@ p img {
   }
 
   .post-title {
-    font-size: 2.4rem;
+    font-size: 1.8rem;
   }
 
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -63,12 +63,15 @@ p img {
     height: 45vh;
   }
 
-  .post-title {
-    font-size: 2.6rem;
+  h1 {
+    font-size: 2.3rem;
   }
+  /* .post-title {
+    font-size: 2.6rem;
+  } */
 
   h2 {
-    font-size: 2.3rem;
+    font-size: 2rem;
   }
 }
 

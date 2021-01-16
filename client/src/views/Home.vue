@@ -44,7 +44,7 @@ export default {
 
 .page-title {
   font-weight: 700;
-  color: rgba(0,0,0,0.8);
+  color: rgba(0, 0, 0, 0.8);
 }
 
 .sub-title {
@@ -67,12 +67,20 @@ export default {
     width: 100vw;
     height: 20vh;
   }
+
+  .page-title {
+    font-size: 2.5rem;
+  }
 }
 
 @media (min-width: 768px) {
   .img-con {
     width: 100vw;
     height: 30vh;
+  }
+
+  .page-title {
+    font-size: 2.6rem;
   }
 }
 

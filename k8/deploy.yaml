@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: blogapp
+  name: nkblog
   labels:
-    app: blogapp
+    app: nkblog
 spec:
   replicas: 1
   selector:
     matchLabels:
-      name: blogapp
+      name: nkblog
   template:
     metadata:
       labels:
-        name: blogapp
+        name: nkblog
     spec:
       containers:
-        - name: blogapp
-          image: astronik/blogapp:latest
+        - name: nkblog
+          image: astronik/nkblog:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
